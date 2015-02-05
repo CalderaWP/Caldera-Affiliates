@@ -6,7 +6,7 @@
  * @author    Josh Pollock <Josh@CalderaWP.com>
  * @license   GPL-2.0+
  * @link
- * @copyright 2014 Josh Pollock <Josh@CalderaWP.com>
+ * @copyright 2015 Josh Pollock <Josh@CalderaWP.com>
  */
 
 /**
@@ -19,6 +19,8 @@ class Caldera_Affiliates_Options {
 
 	/**
 	 * Get an option from this plugin.
+	 *
+	 * @since 0.0.1
 	 *
 	 * @param string $option The name of a specific option to get.
 	 * @param mixed $default Optional. Default to return if no value found. Default is false.
@@ -44,6 +46,8 @@ class Caldera_Affiliates_Options {
 	/**
 	 * Get all option from this plugin.
 	 *
+	 * @since 0.0.1
+	 *
 	 * @return null|array Returns the options or null if none are set
 	 */
 	public static function get_all (  ) {
@@ -53,6 +57,8 @@ class Caldera_Affiliates_Options {
 
 	/**
 	 * Get an option or all option from this plugin
+	 *
+	 * @since 0.0.1
 	 *
 	 * @access private
 	 *

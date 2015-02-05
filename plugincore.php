@@ -4,7 +4,7 @@
  * @author    Josh Pollock <Josh@CalderaWP.com>
  * @license   GPL-2.0+
  * @link      
- * @copyright 2014 Josh Pollock <Josh@CalderaWP.com>
+ * @copyright 2015 Josh Pollock <Josh@CalderaWP.com>
  *
  * @wordpress-plugin
  * Plugin Name: Caldera Affiliates
@@ -34,12 +34,6 @@ define('CALDERA_AFFILIATES_VER',  '0.0.1' );
 require_once( CALDERA_AFFILIATES_PATH . '/classes/caldera-affiliates.php' );
 require_once( CALDERA_AFFILIATES_PATH . '/classes/options.php' );
 require_once( CALDERA_AFFILIATES_PATH . 'includes/settings.php' );
-
-if ( is_admin() ) {
-	require_once( CALDERA_AFFILIATES_PATH . 'classes/sanitize-callbacks.php' );
-	add_action( 'plugins_loaded', array( 'Caldera_Affiliates_Sanitize_Callbacks', 'get_instance' ) );
-
-}
 
 // Load instance
 add_action( 'plugins_loaded', array( 'Caldera_Affiliates', 'get_instance' ) );

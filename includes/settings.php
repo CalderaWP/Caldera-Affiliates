@@ -6,7 +6,7 @@
  * @author    Josh Pollock <Josh@CalderaWP.com>
  * @license   GPL-2.0+
  * @link
- * @copyright 2014 Josh Pollock <Josh@CalderaWP.com>
+ * @copyright 2015 Josh Pollock <Josh@CalderaWP.com>
  */
 
 /**
@@ -18,7 +18,9 @@ class Caldera_Affiliates_Settings extends Caldera_Affiliates{
 
 
 	/**
-	 * Start up
+	 * Constructor for class
+	 *
+	 * @since 0.0.1
 	 */
 	public function __construct(){
 
@@ -34,7 +36,11 @@ class Caldera_Affiliates_Settings extends Caldera_Affiliates{
 	}
 
 	/**
-	 * saves a config
+	 * Saves a config
+	 *
+	 * @since 0.0.1
+	 *
+	 * @uses "wp_ajax_caldera_affiliates_save_config" hook
 	 */
 	public function save_config(){
 
@@ -103,6 +109,8 @@ class Caldera_Affiliates_Settings extends Caldera_Affiliates{
 	/**
 	 * Adds the filter for sanization and/ or validation of each setting when saving.
 	 *
+	 * @since 0.0.1
+	 *
 	 * @param array $config Data being saved
 	 *
 	 * @return array
@@ -124,10 +132,12 @@ class Caldera_Affiliates_Settings extends Caldera_Affiliates{
 	/**
 	 * Array of "internal" fields not to mess with
 	 *
+	 * @since 0.0.1
+	 *
 	 * @return array
 	 */
 	protected function internal_config_fields() {
-		return array( 'hobbes-syncs-setup', '_wp_http_referer', 'id', '_current_tab' );
+		return array( '_wp_http_referer', 'id', '_current_tab' );
 	}
 
 
@@ -179,6 +189,10 @@ class Caldera_Affiliates_Settings extends Caldera_Affiliates{
 
 	/**
 	 * Add options page
+	 *
+	 * @since 0.0.1
+	 *
+	 * @uses "admin_menu" hook
 	 */
 	public function add_settings_pages(){
 		// This page will be under "Settings"
@@ -193,6 +207,8 @@ class Caldera_Affiliates_Settings extends Caldera_Affiliates{
 
 	/**
 	 * Options page callback
+	 *
+	 * @since 0.0.1
 	 */
 	public function create_admin_page(){
 		// Set class property        
@@ -219,5 +235,6 @@ class Caldera_Affiliates_Settings extends Caldera_Affiliates{
 
 }
 
-if( is_admin() )
+if( is_admin() ) {
 	$settings_caldera_affliates = new Caldera_Affiliates_Settings();
+}

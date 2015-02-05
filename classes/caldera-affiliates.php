@@ -6,7 +6,7 @@
  * @author    Josh Pollock <Josh@CalderaWP.com>
  * @license   GPL-2.0+
  * @link      
- * @copyright 2014 Josh Pollock <Josh@CalderaWP.com>
+ * @copyright 2015 Josh Pollock <Josh@CalderaWP.com>
  */
 
 /**
@@ -17,20 +17,38 @@
 class Caldera_Affiliates {
 
 	/**
+	 * The slug for this plugin
+	 *
+	 * @since 0.0.1
+	 *
 	 * @var      string
 	 */
 	protected $plugin_slug = 'caldera-affiliates';
+
 	/**
-	 * @var      object
+	 * Holds class isntance
+	 *
+	 * @since 0.0.1
+	 *
+	 * @var      object|Caldera_Affiliates
 	 */
 	protected static $instance = null;
+
 	/**
+	 * Holds the option screen prefix
+	 *
+	 * @since 0.0.1
+	 *
 	 * @var      string
 	 */
 	protected $plugin_screen_hook_suffix = null;
+
 	/**
 	 * Initialize the plugin by setting localization, filters, and administration functions.
 	 *
+	 * @since 0.0.1
+	 *
+	 * @access private
 	 */
 	private function __construct() {
 
@@ -49,8 +67,9 @@ class Caldera_Affiliates {
 	/**
 	 * Return an instance of this class.
 	 *
+	 * @since 0.0.1
 	 *
-	 * @return    object    A single instance of this class.
+	 * @return    object|Caldera_Affiliates    A single instance of this class.
 	 */
 	public static function get_instance() {
 
@@ -65,6 +84,7 @@ class Caldera_Affiliates {
 	/**
 	 * Load the plugin text domain for translation.
 	 *
+	 * @since 0.0.1
 	 */
 	public function load_plugin_textdomain() {
 
@@ -75,6 +95,7 @@ class Caldera_Affiliates {
 	/**
 	 * Register and enqueue admin-specific style sheet.
 	 *
+	 * @since 0.0.1
 	 *
 	 * @return    null
 	 */

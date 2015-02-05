@@ -6,7 +6,7 @@
  * @author  Josh Pollock <Josh@CalderaWP.com>
  * @license   GPL-2.0+
  * @link
- * @copyright 2014 Josh Pollock
+ * @copyright 2015 Josh Pollock
  */
 
 /**
@@ -18,6 +18,8 @@ class Caldera_Affiliates_Settings_Sanitize {
 
 	/**
 	 * Prepares for application of the sanization and/ or validation filter based on setting type
+	 *
+	 * @since 0.0.1
 	 *
 	 * @access protected
 	 *
@@ -70,6 +72,8 @@ class Caldera_Affiliates_Settings_Sanitize {
 	/**
 	 * Actually applies the sanization and/ or validation filter
 	 *
+	 * @since 0.0.1
+	 *
 	 * @access protected
 	 *
 	 * @param string $setting The name of the setting being saved.
@@ -85,6 +89,8 @@ class Caldera_Affiliates_Settings_Sanitize {
 
 		/**
 		 * Hook here to sanatize/validate settings
+		 *
+		 * @since 0.0.1
 		 *
 		 * @param string $setting The name of the setting being saved.
 		 * @param mixed $value The value being saved
