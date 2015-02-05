@@ -37,3 +37,25 @@ require_once( CALDERA_AFFILIATES_PATH . 'includes/settings.php' );
 
 // Load instance
 add_action( 'plugins_loaded', array( 'Caldera_Affiliates', 'get_instance' ) );
+
+
+
+/**
+ * Add sanitation filters for our options
+ *
+ * @since 0.0.1
+ *
+ * @uses "plugins_loaded" hook
+ */
+function caldera_affiliates_sanitize() {
+	require_once( CALDERA_AFFILIATES_PATH . '/classes/sanitize-callbacks.php' );
+	add_filter( 'caldera_affiliates_links_name', array( 'Caldera_Affiliates_Sanitize_Callbacks', 'name' ) );
+	add_filter( 'caldera_affiliates_links_url', array( 'Caldera_Affiliates_Sanitize_Callbacks', 'links_url' ) );
+	add_filter( 'caldera_affiliates_links_title_text', array( 'Caldera_Affiliates_Sanitize_Callbacks', 'title_text' ) );
+}
+
+//hook caldera_affiliates_sanitize to plugins_loaded if is admin, or doing AJAX
+if ( is_admin() || ( defined('DOING_AJAX' ) && DOING_AJAX ) ) {
+	add_action( 'plugins_loaded','caldera_affiliates_sanitize' );
+
+}
