@@ -1,0 +1,6 @@
+Plugin Name -- Caldera Affiliates
+Text domain -- caldera-affiliates
+Function prefix -- caldera_custom_login
+Class prefix - caldera_affiliates
+Root namespace -- n/a
+Hook Prefix -- caldera_affiliates
