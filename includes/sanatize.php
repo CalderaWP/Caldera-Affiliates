@@ -14,7 +14,7 @@
  * @package Caldera_Affiliates
  * @author  Josh Pollock <Josh@CalderaWP.com>
  */
-class Settings_Caldera_Affiliates_Sanitize {
+class Caldera_Affiliates_Settings_Sanitize {
 
 	/**
 	 * Prepares for application of the sanization and/ or validation filter based on setting type

@@ -14,7 +14,7 @@
  * @package Caldera_Affiliates
  * @author  Josh Pollock <Josh@CalderaWP.com>
  */
-class Settings_Caldera_Affiliates extends Caldera_Affiliates{
+class Caldera_Affiliates_Settings extends Caldera_Affiliates{
 
 
 	/**
@@ -111,7 +111,7 @@ class Settings_Caldera_Affiliates extends Caldera_Affiliates{
 		foreach( $config as $setting => $value ) {
 			if ( ! in_array( $setting, $this->internal_config_fields() ) ) {
 				include_once( dirname( __FILE__ ) . '/sanatize.php' );
-				$filtered = Settings_Caldera_Affiliates_Sanitize::apply_sanitization_and_validation( $setting, $value, $config );
+				$filtered = Caldera_Affiliates_Settings_Sanitize::apply_sanitization_and_validation( $setting, $value, $config );
 				$config = $filtered;
 			}
 
@@ -220,4 +220,4 @@ class Settings_Caldera_Affiliates extends Caldera_Affiliates{
 }
 
 if( is_admin() )
-	$settings_caldera_affliates = new Settings_Caldera_Affiliates();
+	$settings_caldera_affliates = new Caldera_Affiliates_Settings();
