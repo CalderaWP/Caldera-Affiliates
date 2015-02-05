@@ -35,5 +35,11 @@ require_once( CALDERA_AFFILIATES_PATH . '/classes/caldera-affiliates.php' );
 require_once( CALDERA_AFFILIATES_PATH . '/classes/options.php' );
 require_once( CALDERA_AFFILIATES_PATH . 'includes/settings.php' );
 
+if ( is_admin() ) {
+	require_once( CALDERA_AFFILIATES_PATH . 'classes/sanitize-callbacks.php' );
+	add_action( 'plugins_loaded', array( 'Caldera_Affiliates_Sanitize_Callbacks', 'get_instance' ) );
+
+}
+
 // Load instance
 add_action( 'plugins_loaded', array( 'Caldera_Affiliates', 'get_instance' ) );
