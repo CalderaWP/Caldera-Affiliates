@@ -60,3 +60,20 @@ if ( is_admin() || ( defined('DOING_AJAX' ) && DOING_AJAX ) ) {
 	add_action( 'plugins_loaded','caldera_affiliates_sanitize' );
 
 }
+
+/**
+ * Hooks the render class up for front-end rendering and clearing cache in back-end.
+ *
+ * @since 0.0.1
+ */
+add_action( 'plugins_loaded', 'caldera_affiliates_render' );
+function caldera_affiliates_render() {
+	require_once( CALDERA_AFFILIATES_PATH . '/classes/render.php' );
+	if ( ! is_admin() ) {
+		add_filter( 'the_content', array( 'Caldera_Affiliates_Render', 'render' ) );
+	}else{
+		add_action( 'save_post', array( 'Caldera_Affiliates_Render', 'clear_cache' ) );
+
+	}
+
+}
