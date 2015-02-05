@@ -136,7 +136,7 @@ class Caldera_Affiliates_Settings extends Caldera_Affiliates{
 	 *
 	 * @return array
 	 */
-	protected function internal_config_fields() {
+	public function internal_config_fields() {
 		return array( '_wp_http_referer', 'id', '_current_tab' );
 	}
 
@@ -236,5 +236,6 @@ class Caldera_Affiliates_Settings extends Caldera_Affiliates{
 }
 
 if( is_admin() ) {
+	global $settings_caldera_affliates;
 	$settings_caldera_affliates = new Caldera_Affiliates_Settings();
 }

@@ -47,9 +47,12 @@ class Caldera_Affiliates_Settings_Sanitize {
 
 					//do for parts of field groups
 					foreach ( $val as $k => $v  ) {
-						if( isset( $stored[ $setting ][ $sub_setting ][ $k ] ) && $stored[ $setting ][ $sub_setting ][ $k ] != $v ){
-							$v = self::apply_sanitization_filter( $k, $v, $config, $setting );
-							$config[ $setting][ $sub_setting ][ $k ] = $v;
+
+						if ( ! self::is_internal_key( $k ) ) {
+							if ( ! isset ( $stored[ $setting ][ $sub_setting ][ $k ] ) || ( isset( $stored[ $setting ][ $sub_setting ][ $k ] ) && $stored[ $setting ][ $sub_setting ][ $k ] != $v ) ) {
+								$v = self::apply_sanitization_filter( $k, $v, $config, $setting );
+								$config[ $setting ][ $sub_setting ][ $k ] = $v;
+							}
 						}
 
 					}
@@ -97,6 +100,29 @@ class Caldera_Affiliates_Settings_Sanitize {
 		 * @param array $config Data being saved
 		 */
 		return apply_filters( $filter_name, $value, $config );
+
+	}
+
+	/**
+	 * Check if key is internal or not
+	 *
+	 * @since 0.0.1
+	 *
+	 * @access protected
+	 *
+	 * @param string $key
+	 *
+	 * @return bool True if is a internal key. False if not
+	 */
+	protected static function is_internal_key( $key ) {
+		global $settings_caldera_affliates;
+		$internal_config_fields = $settings_caldera_affliates->internal_config_fields();
+		if ( in_array( $key, $internal_config_fields ) ) {
+			return true;
+
+		}
+
+		return false;
 
 	}
 
