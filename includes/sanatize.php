@@ -82,9 +82,9 @@ class Caldera_Affiliates_Settings_Sanitize {
 	 * @param string|bool $sub_setting Optional. The "sub_setting" when saving fields that are arrays.
 	 */
 	protected static function apply_sanitization_filter( $setting, $value, $config, $sub_setting = false ) {
-		$filter_name = "{{core_class}}_{$setting}";
+		$filter_name = "caldera_affiliates_{$setting}";
 		if (  $sub_setting ) {
-			$filter_name = "{{core_class}}_{$sub_setting}_{$setting}";
+			$filter_name = "caldera_affiliates_{$sub_setting}_{$setting}";
 		}
 
 		/**
