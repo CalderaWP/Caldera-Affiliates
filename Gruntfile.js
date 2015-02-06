@@ -88,7 +88,7 @@ module.exports = function (grunt) {
                     allowEmpty: true
                 },
                 files: {
-                    src: [ 'package.json', 'caldera-custom-login.php', 'releases/<%= pkg.name %>-<%= pkg.version %>.zip' ]
+                    src: [ 'package.json', 'readme.txt', 'plugincore.php', 'releases/<%= pkg.name %>-<%= pkg.version %>.zip' ]
                 }
             }
         },
@@ -112,6 +112,15 @@ module.exports = function (grunt) {
                     from: /define\(\s*'CALDERA_AFFILIATES_VER',\s*'(.*)'\s*\);/,
                     to: "define( 'CALDERA_AFFILIATES_VER', '<%= pkg.version %>' );"
                 }]
+            },
+            reamde_txt: {
+                src: [ 'readme.txt' ],
+                overwrite: true,
+                replacements: [{
+                    from: /Stable tag: (.*)/,
+                    to: "Stable tag: <%= pkg.version %>"
+                }]
+
             }
         }
 
@@ -129,7 +138,7 @@ module.exports = function (grunt) {
     //register default task
 
     //release tasks
-    grunt.registerTask( 'version_number', [ 'replace:core_file' ] );
+    grunt.registerTask( 'version_number', [ 'replace:core_file', "replace:reamde_txt" ] );
     grunt.registerTask( 'pre_vcs', [ 'version_number', 'copy', 'compress' ] );
     grunt.registerTask( 'do_git', [ 'gitadd', 'gitcommit', 'gittag', 'gitpush' ] );
     grunt.registerTask( 'just_build', [ 'copy', 'compress' ] );
