@@ -1,7 +1,7 @@
 === Plugin Name ===
 Contributors: Desertsnowman, Shelob9
 Donate link: https://CalderaWP.com
-Tags:
+Tags: affiliate, affiliates
 Requires at least: 3.9
 Tested up to: 4.2
 Stable tag: 0.0.1
@@ -12,7 +12,9 @@ Easily swap out the name of an affiliate partner with your affiliate link.
 
 == Description ==
 
-Easily swap out the name of an affiliate partner with your affiliate link.
+Easily swap out the name of an affiliate partner with your affiliate link. Create one or more groups of affiliate links, and when you use the name of an affiliate in your post content this plugin will replace it with the link you specify.
+
+Makes it easy to add, update and remove affiliate links you use on your site.
 
 Caldera Affiliates is a free plugin by [CalderaWP](https://CalderaWP.com).
 
