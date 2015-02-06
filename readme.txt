@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== Caldera Affiliates  ===
 Contributors: Desertsnowman, Shelob9
 Donate link: https://CalderaWP.com
 Tags: affiliate, affiliates
