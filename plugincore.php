@@ -10,7 +10,7 @@
  * Plugin Name: Caldera Affiliates
  * Plugin URI:  http://CalderaWP.com
  * Description: Easily swap out the name of an affiliate partner with your affiliate link.
- * Version:     0.0.1
+ * Version: 0.1.0
  * Author:      Josh Pollock <Josh@CalderaWP.com>
  * Author URI:  http://JoshPress.net
  * Text Domain: caldera-affiliates
@@ -26,7 +26,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 define('CALDERA_AFFILIATES_PATH',  plugin_dir_path( __FILE__ ) );
 define('CALDERA_AFFILIATES_URL',  plugin_dir_url( __FILE__ ) );
-define('CALDERA_AFFILIATES_VER',  '0.0.1' );
+define( 'CALDERA_AFFILIATES_VER', '0.1.0' );
 
 
 
