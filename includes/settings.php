@@ -69,7 +69,9 @@ class Caldera_Affiliates_Settings extends Caldera_Affiliates{
 				$caldera_affiliatess[$config['id']] = $updated_registery;
 				update_option( '_caldera_affliates_registry', $caldera_affiliatess );
 			}
+
 			update_option( $config['id'], $config );
+			Caldera_Affiliates_Render::clear_cache();
 
 			wp_redirect( '?page=caldera_affiliates&updated=true' );
 			exit;
@@ -95,10 +97,12 @@ class Caldera_Affiliates_Settings extends Caldera_Affiliates{
 				$caldera_affiliatess[$config['id']] = $updated_registery;
 				update_option( '_caldera_affliates_registry', $caldera_affiliatess );
 			}
-			update_option( $config['id'], $config );
 
+				update_option( $config['id'], $config );
+				Caldera_Affiliates_Render::clear_cache();
 				wp_send_json_success( $config );
 			}
+
 		}
 
 		// nope

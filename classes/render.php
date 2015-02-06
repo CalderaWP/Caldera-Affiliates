@@ -31,6 +31,7 @@ class Caldera_Affiliates_Render {
 	 */
 	protected static $replacements_cache_key = 'caldera_affiliates_render_replacements';
 
+
 	/**
 	 * Does replacements and renders content
 	 *
@@ -84,7 +85,6 @@ class Caldera_Affiliates_Render {
 	 */
 	protected static function get_replacements() {
 
-
 		if ( ! $replacements = get_transient( self::$replacements_cache_key ) ) {
 			$groups  = get_option( '_caldera_affliates_registry' );
 			$the_groups = $replacements = array();
@@ -122,11 +122,26 @@ class Caldera_Affiliates_Render {
 	 *
 	 * @uses "save_post" action
 	 *
-	 * @param int $post_id
+	 * @param int|bool $post_id Optional. Post Id to clear for. If false, the default, only the replacements transient is cleared. If explicitly set to true, will clear all cached posts.
 	 */
-	public static function clear_cache( $post_id ) {
-		$cache_key = self::post_cache_key( $post_id );
-		wp_cache_delete( $cache_key, self::$cache_group );
+	public static function clear_cache( $post_id = false ) {
+		switch ( $post_id ) {
+			case true === $post_id :
+				global $wp_object_cache;
+				if ( isset( $wp_object_cache->cache[ self::$cache_group ] ) ) {
+					foreach( $wp_object_cache->cache[ self::$cache_group ] as $key => $value ) {
+						wp_cache_delete( $key, self::$cache_group );
+					}
+
+				}
+			break;
+			case 1 < intval( $post_id ) :
+				$cache_key = self::post_cache_key( $post_id );
+				wp_cache_delete( $cache_key, self::$cache_group );
+			break;
+
+		}
+
 		delete_transient( self::$replacements_cache_key );
 
 	}
