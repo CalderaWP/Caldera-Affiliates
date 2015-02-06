@@ -66,7 +66,7 @@ if ( is_admin() || ( defined('DOING_AJAX' ) && DOING_AJAX ) ) {
  *
  * @since 0.0.1
  */
-add_action( 'plugins_loaded', 'caldera_affiliates_make_it_so' )
+add_action( 'plugins_loaded', 'caldera_affiliates_make_it_so' );
 function caldera_affiliates_make_it_so() {
 	require_once( CALDERA_AFFILIATES_PATH . '/classes/render.php' );
 	if ( ! is_admin() ) {
